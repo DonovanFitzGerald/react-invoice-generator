@@ -2,11 +2,9 @@ import { FC, useState, useEffect } from 'react'
 import { Invoice, ProductLine } from '../data/types'
 import { initialInvoice, initialProductLine } from '../data/initialData'
 import EditableInput from './EditableInput'
-import EditableSelect from './EditableSelect'
 import EditableTextarea from './EditableTextarea'
 import EditableCalendarInput from './EditableCalendarInput'
 import EditableFileImage from './EditableFileImage'
-import countryList from '../data/countryList'
 import Document from './Document'
 import Page from './Page'
 import View from './View'
@@ -163,27 +161,27 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
               pdfMode={pdfMode}
             />
             <EditableInput
-              placeholder="Your Name"
-              value={invoice.name}
-              onChange={(value) => handleChange('name', value)}
-              pdfMode={pdfMode}
-            />
-            <EditableInput
-              placeholder="Company's Address"
+              placeholder="Address Line 1"
               value={invoice.companyAddress}
               onChange={(value) => handleChange('companyAddress', value)}
               pdfMode={pdfMode}
             />
             <EditableInput
-              placeholder="City, State Zip"
+              placeholder="Address Line 2"
               value={invoice.companyAddress2}
               onChange={(value) => handleChange('companyAddress2', value)}
               pdfMode={pdfMode}
             />
-            <EditableSelect
-              options={countryList}
-              value={invoice.companyCountry}
-              onChange={(value) => handleChange('companyCountry', value)}
+            <EditableInput
+              placeholder="Phone"
+              value={invoice.companyPhone}
+              onChange={(value) => handleChange('companyPhone', value)}
+              pdfMode={pdfMode}
+            />
+            <EditableInput
+              placeholder="Website"
+              value={invoice.companyWebsite}
+              onChange={(value) => handleChange('companyWebsite', value)}
               pdfMode={pdfMode}
             />
           </View>
@@ -313,8 +311,9 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
                 />
               </View>
               <View className="w-25 p-4-8 pb-10" pdfMode={pdfMode}>
-                <EditableInput
+                <EditableTextarea
                   className="dark"
+                  rows={2}
                   placeholder="Enter item description"
                   value={productLine.description}
                   onChange={(value) => handleProductLineChange(i, 'description', value)}
