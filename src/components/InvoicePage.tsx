@@ -465,12 +465,12 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
               Payment terms: Invoice to be settled by {format(invoiceDueDate, dateFormat)}
             </Text>
             <View className="flex mb-2" pdfMode={pdfMode}>
-              <View className="w-30" pdfMode={pdfMode}>
+              <View className="w-20" pdfMode={pdfMode}>
                 <Text className="bold fs-small" pdfMode={pdfMode}>
                   Bank:
                 </Text>
               </View>
-              <View className="w-70" pdfMode={pdfMode}>
+              <View className="w-100" pdfMode={pdfMode}>
                 <EditableInput
                   className="fs-small"
                   placeholder="Enter bank name and address"
@@ -481,12 +481,12 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
               </View>
             </View>
             <View className="flex mb-2" pdfMode={pdfMode}>
-              <View className="w-30" pdfMode={pdfMode}>
+              <View className="w-20" pdfMode={pdfMode}>
                 <Text className="bold fs-small" pdfMode={pdfMode}>
                   Sort Code:
                 </Text>
               </View>
-              <View className="w-70" pdfMode={pdfMode}>
+              <View className="w-100" pdfMode={pdfMode}>
                 <EditableInput
                   className="fs-small"
                   placeholder="Enter sort code"
@@ -497,12 +497,12 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
               </View>
             </View>
             <View className="flex mb-2" pdfMode={pdfMode}>
-              <View className="w-30" pdfMode={pdfMode}>
+              <View className="w-20" pdfMode={pdfMode}>
                 <Text className="bold fs-small" pdfMode={pdfMode}>
                   Account Number:
                 </Text>
               </View>
-              <View className="w-70" pdfMode={pdfMode}>
+              <View className="w-100" pdfMode={pdfMode}>
                 <EditableInput
                   className="fs-small"
                   placeholder="Enter account number"
@@ -513,12 +513,12 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
               </View>
             </View>
             <View className="flex mb-2" pdfMode={pdfMode}>
-              <View className="w-30" pdfMode={pdfMode}>
+              <View className="w-20" pdfMode={pdfMode}>
                 <Text className="bold fs-small" pdfMode={pdfMode}>
                   IBAN:
                 </Text>
               </View>
-              <View className="w-70" pdfMode={pdfMode}>
+              <View className="w-100" pdfMode={pdfMode}>
                 <EditableInput
                   className="fs-small"
                   placeholder="Enter IBAN"
@@ -529,12 +529,12 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
               </View>
             </View>
             <View className="flex mb-2" pdfMode={pdfMode}>
-              <View className="w-30" pdfMode={pdfMode}>
+              <View className="w-20" pdfMode={pdfMode}>
                 <Text className="bold fs-small" pdfMode={pdfMode}>
                   BIC:
                 </Text>
               </View>
-              <View className="w-70" pdfMode={pdfMode}>
+              <View className="w-100" pdfMode={pdfMode}>
                 <EditableInput
                   className="fs-small"
                   placeholder="Enter BIC"
