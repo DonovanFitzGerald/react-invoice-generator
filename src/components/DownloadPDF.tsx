@@ -37,20 +37,23 @@ const Download: FC<Props> = ({ data, setData }) => {
       .catch((err) => console.error(err))
   }
 
+  // Get the invoice number from the invoice title or use 'invoice' as fallback
+  const getInvoiceNumber = () => (data.invoiceTitle ? data.invoiceTitle : 'invoice')
+
   function handleSaveTemplate() {
     const blob = new Blob([JSON.stringify(debounced)], {
       type: 'text/plain;charset=utf-8',
     })
-    FileSaver(blob, title + '.template')
+    FileSaver(blob, `Invoice-${getInvoiceNumber()}.template`)
   }
 
-  const title = data.invoiceTitle ? data.invoiceTitle.toLowerCase() : 'invoice'
+  const fileName = `Invoice-${getInvoiceNumber()}.pdf`
   return (
     <div className={'download-pdf '}>
       <PDFDownloadLink
         key="pdf"
         document={<InvoicePage pdfMode={true} data={debounced} />}
-        fileName={`${title}.pdf`}
+        fileName={fileName}
         aria-label="Save PDF"
         title="Save PDF"
         className="download-pdf__pdf"
