@@ -101,6 +101,12 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
     setInvoice({ ...invoice, productLines })
   }
 
+  const handleSetDueDate30Days = () => {
+    const newDueDate = new Date(invoiceDate.valueOf())
+    newDueDate.setDate(newDueDate.getDate() + 30)
+    handleChange('invoiceDueDate', format(newDueDate, dateFormat))
+  }
+
   const formatNumber = (value: number) => {
     return value.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
   }
@@ -211,7 +217,7 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
                   pdfMode={pdfMode}
                 />
               </View>
-              <View className="w-60" pdfMode={pdfMode}>
+              <View className="w-60 flex" pdfMode={pdfMode}>
                 <EditableCalendarInput
                   className="fs-medium"
                   value={format(invoiceDueDate, dateFormat)}
@@ -224,6 +230,17 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
                   }
                   pdfMode={pdfMode}
                 />
+                {!pdfMode && (
+                  <button
+                    type="button"
+                    className="link"
+                    title="Set to 30 days from issue date"
+                    aria-label="Set to 30 days from issue date"
+                    onClick={handleSetDueDate30Days}
+                  >
+                    +30 Days
+                  </button>
+                )}
               </View>
             </View>
           </View>
