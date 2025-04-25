@@ -2,12 +2,14 @@ import { CSSProperties } from 'react'
 import { z, TypeOf } from 'zod'
 
 export interface ProductLine {
+  name: string
   description: string
   quantity: string
   rate: string
 }
 
 export const TProductLine = z.object({
+  name: z.string(),
   description: z.string(),
   quantity: z.string(),
   rate: z.string(),
