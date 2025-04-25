@@ -231,12 +231,6 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
         <View className="flex border-bottom" pdfMode={pdfMode}>
           <View className="w-50 lh-small" pdfMode={pdfMode}>
             <EditableInput
-              className="bold w-100"
-              value={invoice.issuedToLabel}
-              onChange={(value) => handleChange('issuedToLabel', value)}
-              pdfMode={pdfMode}
-            />
-            <EditableInput
               className="fs-20 bold"
               placeholder="Client Name"
               value={invoice.clientName}

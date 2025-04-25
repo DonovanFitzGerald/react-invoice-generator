@@ -22,7 +22,7 @@ export const initialInvoice: Invoice = {
   invoiceDate: '',
   invoiceDueDateLabel: 'Due Date',
   invoiceDueDate: '',
-  issuedToLabel: 'Issued to:',
+
   clientName: '',
   clientAddress1: '',
   clientAddress2: '',

@@ -30,7 +30,7 @@ export const TInvoice = z.object({
   invoiceDate: z.string(),
   invoiceDueDateLabel: z.string(),
   invoiceDueDate: z.string(),
-  issuedToLabel: z.string(),
+
   clientName: z.string(),
   clientAddress1: z.string(),
   clientAddress2: z.string(),
