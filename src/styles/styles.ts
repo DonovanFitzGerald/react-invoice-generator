@@ -85,6 +85,14 @@ const styles: CSSClasses = {
     width: '25%',
   },
 
+  'w-30': {
+    width: '30%',
+  },
+
+  'w-70': {
+    width: '70%',
+  },
+
   row: {
     borderBottom: `1px solid ${colorGray}`,
   },
