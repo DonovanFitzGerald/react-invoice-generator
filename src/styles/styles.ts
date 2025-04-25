@@ -65,12 +65,24 @@ const styles: CSSClasses = {
     width: '48%',
   },
 
+  'w-15': {
+    width: '15%',
+  },
+
   'w-17': {
     width: '17%',
   },
 
   'w-18': {
     width: '18%',
+  },
+
+  'w-20': {
+    width: '20%',
+  },
+
+  'w-25': {
+    width: '25%',
   },
 
   row: {
