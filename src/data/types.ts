@@ -39,10 +39,14 @@ export const TInvoice = z.object({
   taxLabel: z.string(),
   totalLabel: z.string(),
   currency: z.string(),
+  paymentDetailsLabel: z.string(),
+  bank: z.string(),
+  sortCode: z.string(),
+  accountNumber: z.string(),
+  iban: z.string(),
+  bic: z.string(),
   notesLabel: z.string(),
   notes: z.string(),
-  termLabel: z.string(),
-  term: z.string(),
 })
 
 export type Invoice = TypeOf<typeof TInvoice>

@@ -425,6 +425,92 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
         <View className="mt-20" pdfMode={pdfMode}>
           <EditableInput
             className="bold w-100"
+            value={invoice.paymentDetailsLabel}
+            onChange={(value) => handleChange('paymentDetailsLabel', value)}
+            pdfMode={pdfMode}
+          />
+          <Text className="mb-5" pdfMode={pdfMode}>
+            Payment terms: Invoice to be settled by {format(invoiceDueDate, dateFormat)}
+          </Text>
+          <View className="flex mb-5" pdfMode={pdfMode}>
+            <View className="w-30" pdfMode={pdfMode}>
+              <Text className="bold" pdfMode={pdfMode}>
+                Bank:
+              </Text>
+            </View>
+            <View className="w-70" pdfMode={pdfMode}>
+              <EditableInput
+                placeholder="Enter bank name and address"
+                value={invoice.bank}
+                onChange={(value) => handleChange('bank', value)}
+                pdfMode={pdfMode}
+              />
+            </View>
+          </View>
+          <View className="flex mb-5" pdfMode={pdfMode}>
+            <View className="w-30" pdfMode={pdfMode}>
+              <Text className="bold" pdfMode={pdfMode}>
+                Sort Code:
+              </Text>
+            </View>
+            <View className="w-70" pdfMode={pdfMode}>
+              <EditableInput
+                placeholder="Enter sort code"
+                value={invoice.sortCode}
+                onChange={(value) => handleChange('sortCode', value)}
+                pdfMode={pdfMode}
+              />
+            </View>
+          </View>
+          <View className="flex mb-5" pdfMode={pdfMode}>
+            <View className="w-30" pdfMode={pdfMode}>
+              <Text className="bold" pdfMode={pdfMode}>
+                Account Number:
+              </Text>
+            </View>
+            <View className="w-70" pdfMode={pdfMode}>
+              <EditableInput
+                placeholder="Enter account number"
+                value={invoice.accountNumber}
+                onChange={(value) => handleChange('accountNumber', value)}
+                pdfMode={pdfMode}
+              />
+            </View>
+          </View>
+          <View className="flex mb-5" pdfMode={pdfMode}>
+            <View className="w-30" pdfMode={pdfMode}>
+              <Text className="bold" pdfMode={pdfMode}>
+                IBAN:
+              </Text>
+            </View>
+            <View className="w-70" pdfMode={pdfMode}>
+              <EditableInput
+                placeholder="Enter IBAN"
+                value={invoice.iban}
+                onChange={(value) => handleChange('iban', value)}
+                pdfMode={pdfMode}
+              />
+            </View>
+          </View>
+          <View className="flex mb-5" pdfMode={pdfMode}>
+            <View className="w-30" pdfMode={pdfMode}>
+              <Text className="bold" pdfMode={pdfMode}>
+                BIC:
+              </Text>
+            </View>
+            <View className="w-70" pdfMode={pdfMode}>
+              <EditableInput
+                placeholder="Enter BIC"
+                value={invoice.bic}
+                onChange={(value) => handleChange('bic', value)}
+                pdfMode={pdfMode}
+              />
+            </View>
+          </View>
+        </View>
+        <View className="mt-20" pdfMode={pdfMode}>
+          <EditableInput
+            className="bold w-100"
             value={invoice.notesLabel}
             onChange={(value) => handleChange('notesLabel', value)}
             pdfMode={pdfMode}
@@ -434,21 +520,6 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
             rows={2}
             value={invoice.notes}
             onChange={(value) => handleChange('notes', value)}
-            pdfMode={pdfMode}
-          />
-        </View>
-        <View className="mt-20" pdfMode={pdfMode}>
-          <EditableInput
-            className="bold w-100"
-            value={invoice.termLabel}
-            onChange={(value) => handleChange('termLabel', value)}
-            pdfMode={pdfMode}
-          />
-          <EditableTextarea
-            className="w-100"
-            rows={2}
-            value={invoice.term}
-            onChange={(value) => handleChange('term', value)}
             pdfMode={pdfMode}
           />
         </View>
