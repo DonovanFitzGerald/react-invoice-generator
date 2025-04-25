@@ -369,6 +369,33 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
                 Add Line Item
               </button>
             )}
+            <View className="mt-20" pdfMode={pdfMode}>
+              <EditableInput
+                className="bold w-100"
+                value={invoice.issuedToLabel}
+                onChange={(value) => handleChange('issuedToLabel', value)}
+                pdfMode={pdfMode}
+              />
+              <EditableInput
+                className="fs-20 bold"
+                placeholder="Client Name"
+                value={invoice.clientName}
+                onChange={(value) => handleChange('clientName', value)}
+                pdfMode={pdfMode}
+              />
+              <EditableInput
+                placeholder="Address Line 1"
+                value={invoice.clientAddress1}
+                onChange={(value) => handleChange('clientAddress1', value)}
+                pdfMode={pdfMode}
+              />
+              <EditableInput
+                placeholder="Address Line 2"
+                value={invoice.clientAddress2}
+                onChange={(value) => handleChange('clientAddress2', value)}
+                pdfMode={pdfMode}
+              />
+            </View>
           </View>
           <View className="w-50 mt-20" pdfMode={pdfMode}>
             <View className="flex" pdfMode={pdfMode}>
@@ -425,92 +452,95 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
           </View>
         </View>
 
-        <View className="mt-20" pdfMode={pdfMode}>
-          <EditableInput
-            className="bold w-100"
-            value={invoice.paymentDetailsLabel}
-            onChange={(value) => handleChange('paymentDetailsLabel', value)}
-            pdfMode={pdfMode}
-          />
-          <Text className="mb-5" pdfMode={pdfMode}>
-            Payment terms: Invoice to be settled by {format(invoiceDueDate, dateFormat)}
-          </Text>
-          <View className="flex mb-5" pdfMode={pdfMode}>
-            <View className="w-30" pdfMode={pdfMode}>
-              <Text className="bold" pdfMode={pdfMode}>
-                Bank:
-              </Text>
+        <View className="flex mt-20" pdfMode={pdfMode}>
+          <View className="w-100" pdfMode={pdfMode}>
+            <EditableInput
+              className="bold w-100"
+              value={invoice.paymentDetailsLabel}
+              onChange={(value) => handleChange('paymentDetailsLabel', value)}
+              pdfMode={pdfMode}
+            />
+            <Text className="mb-5" pdfMode={pdfMode}>
+              Payment terms: Invoice to be settled by {format(invoiceDueDate, dateFormat)}
+            </Text>
+            <View className="flex mb-5" pdfMode={pdfMode}>
+              <View className="w-30" pdfMode={pdfMode}>
+                <Text className="bold" pdfMode={pdfMode}>
+                  Bank:
+                </Text>
+              </View>
+              <View className="w-70" pdfMode={pdfMode}>
+                <EditableInput
+                  placeholder="Enter bank name and address"
+                  value={invoice.bank}
+                  onChange={(value) => handleChange('bank', value)}
+                  pdfMode={pdfMode}
+                />
+              </View>
             </View>
-            <View className="w-70" pdfMode={pdfMode}>
-              <EditableInput
-                placeholder="Enter bank name and address"
-                value={invoice.bank}
-                onChange={(value) => handleChange('bank', value)}
-                pdfMode={pdfMode}
-              />
+            <View className="flex mb-5" pdfMode={pdfMode}>
+              <View className="w-30" pdfMode={pdfMode}>
+                <Text className="bold" pdfMode={pdfMode}>
+                  Sort Code:
+                </Text>
+              </View>
+              <View className="w-70" pdfMode={pdfMode}>
+                <EditableInput
+                  placeholder="Enter sort code"
+                  value={invoice.sortCode}
+                  onChange={(value) => handleChange('sortCode', value)}
+                  pdfMode={pdfMode}
+                />
+              </View>
             </View>
-          </View>
-          <View className="flex mb-5" pdfMode={pdfMode}>
-            <View className="w-30" pdfMode={pdfMode}>
-              <Text className="bold" pdfMode={pdfMode}>
-                Sort Code:
-              </Text>
+            <View className="flex mb-5" pdfMode={pdfMode}>
+              <View className="w-30" pdfMode={pdfMode}>
+                <Text className="bold" pdfMode={pdfMode}>
+                  Account Number:
+                </Text>
+              </View>
+              <View className="w-70" pdfMode={pdfMode}>
+                <EditableInput
+                  placeholder="Enter account number"
+                  value={invoice.accountNumber}
+                  onChange={(value) => handleChange('accountNumber', value)}
+                  pdfMode={pdfMode}
+                />
+              </View>
             </View>
-            <View className="w-70" pdfMode={pdfMode}>
-              <EditableInput
-                placeholder="Enter sort code"
-                value={invoice.sortCode}
-                onChange={(value) => handleChange('sortCode', value)}
-                pdfMode={pdfMode}
-              />
+            <View className="flex mb-5" pdfMode={pdfMode}>
+              <View className="w-30" pdfMode={pdfMode}>
+                <Text className="bold" pdfMode={pdfMode}>
+                  IBAN:
+                </Text>
+              </View>
+              <View className="w-70" pdfMode={pdfMode}>
+                <EditableInput
+                  placeholder="Enter IBAN"
+                  value={invoice.iban}
+                  onChange={(value) => handleChange('iban', value)}
+                  pdfMode={pdfMode}
+                />
+              </View>
             </View>
-          </View>
-          <View className="flex mb-5" pdfMode={pdfMode}>
-            <View className="w-30" pdfMode={pdfMode}>
-              <Text className="bold" pdfMode={pdfMode}>
-                Account Number:
-              </Text>
-            </View>
-            <View className="w-70" pdfMode={pdfMode}>
-              <EditableInput
-                placeholder="Enter account number"
-                value={invoice.accountNumber}
-                onChange={(value) => handleChange('accountNumber', value)}
-                pdfMode={pdfMode}
-              />
-            </View>
-          </View>
-          <View className="flex mb-5" pdfMode={pdfMode}>
-            <View className="w-30" pdfMode={pdfMode}>
-              <Text className="bold" pdfMode={pdfMode}>
-                IBAN:
-              </Text>
-            </View>
-            <View className="w-70" pdfMode={pdfMode}>
-              <EditableInput
-                placeholder="Enter IBAN"
-                value={invoice.iban}
-                onChange={(value) => handleChange('iban', value)}
-                pdfMode={pdfMode}
-              />
-            </View>
-          </View>
-          <View className="flex mb-5" pdfMode={pdfMode}>
-            <View className="w-30" pdfMode={pdfMode}>
-              <Text className="bold" pdfMode={pdfMode}>
-                BIC:
-              </Text>
-            </View>
-            <View className="w-70" pdfMode={pdfMode}>
-              <EditableInput
-                placeholder="Enter BIC"
-                value={invoice.bic}
-                onChange={(value) => handleChange('bic', value)}
-                pdfMode={pdfMode}
-              />
+            <View className="flex mb-5" pdfMode={pdfMode}>
+              <View className="w-30" pdfMode={pdfMode}>
+                <Text className="bold" pdfMode={pdfMode}>
+                  BIC:
+                </Text>
+              </View>
+              <View className="w-70" pdfMode={pdfMode}>
+                <EditableInput
+                  placeholder="Enter BIC"
+                  value={invoice.bic}
+                  onChange={(value) => handleChange('bic', value)}
+                  pdfMode={pdfMode}
+                />
+              </View>
             </View>
           </View>
         </View>
+
         <View className="mt-20" pdfMode={pdfMode}>
           <EditableInput
             className="bold w-100"
