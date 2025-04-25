@@ -101,12 +101,16 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
     setInvoice({ ...invoice, productLines })
   }
 
+  const formatNumber = (value: number) => {
+    return value.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+  }
+
   const calculateAmount = (quantity: string, rate: string) => {
     const quantityNumber = parseFloat(quantity)
     const rateNumber = parseFloat(rate)
     const amount = quantityNumber && rateNumber ? quantityNumber * rateNumber : 0
 
-    return amount.toFixed(2)
+    return formatNumber(amount)
   }
 
   useEffect(() => {
@@ -377,7 +381,7 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
               </View>
               <View className="w-50 p-5" pdfMode={pdfMode}>
                 <Text className="right bold dark" pdfMode={pdfMode}>
-                  {subTotal?.toFixed(2)}
+                  {subTotal !== undefined ? formatNumber(subTotal) : '0.00'}
                 </Text>
               </View>
             </View>
@@ -391,7 +395,7 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
               </View>
               <View className="w-50 p-5" pdfMode={pdfMode}>
                 <Text className="right bold dark" pdfMode={pdfMode}>
-                  {saleTax?.toFixed(2)}
+                  {saleTax !== undefined ? formatNumber(saleTax) : '0.00'}
                 </Text>
               </View>
             </View>
@@ -412,10 +416,9 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
                   pdfMode={pdfMode}
                 />
                 <Text className="right bold dark w-auto" pdfMode={pdfMode}>
-                  {(typeof subTotal !== 'undefined' && typeof saleTax !== 'undefined'
-                    ? subTotal + saleTax
-                    : 0
-                  ).toFixed(2)}
+                  {typeof subTotal !== 'undefined' && typeof saleTax !== 'undefined'
+                    ? formatNumber(subTotal + saleTax)
+                    : '0.00'}
                 </Text>
               </View>
             </View>
