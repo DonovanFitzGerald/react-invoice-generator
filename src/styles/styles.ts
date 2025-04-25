@@ -145,9 +145,27 @@ const styles: CSSClasses = {
     fontSize: '45px',
   },
 
+  'fs-medium': {
+    fontSize: '10px',
+  },
+
+  'fs-small': {
+    fontSize: '8px',
+  },
+
+  'lh-small': {
+    lineHeight: 1.2,
+  },
+
+  'border-bottom': {
+    borderBottom: '1px solid #e0e0e0',
+    paddingBottom: '10px',
+    marginBottom: '10px',
+  },
+
   page: {
     fontFamily: 'Nunito',
-    fontSize: '13px',
+    fontSize: '12px',
     color: '#555',
     padding: '40px 35px',
   },
