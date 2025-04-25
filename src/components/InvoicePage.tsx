@@ -454,12 +454,6 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
 
         <View className="flex mt-20" pdfMode={pdfMode}>
           <View className="w-100" pdfMode={pdfMode}>
-            <EditableInput
-              className="bold w-100"
-              value={invoice.paymentDetailsLabel}
-              onChange={(value) => handleChange('paymentDetailsLabel', value)}
-              pdfMode={pdfMode}
-            />
             <Text className="mb-5" pdfMode={pdfMode}>
               Payment terms: Invoice to be settled by {format(invoiceDueDate, dateFormat)}
             </Text>
