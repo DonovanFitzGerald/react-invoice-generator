@@ -11,7 +11,8 @@ interface Props {
 }
 
 const Download: FC<Props> = ({ data, setData }) => {
-  const debounced = useDebounce(data, 500)
+  // Use current data for PDF generation
+  const debounced = data
 
   function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
     if (!e.target.files?.length) return
@@ -57,6 +58,7 @@ const Download: FC<Props> = ({ data, setData }) => {
       <p>Save PDF</p>
 
       <button
+        type="button"
         onClick={handleSaveTemplate}
         aria-label="Save Template"
         title="Save Template"
@@ -65,7 +67,13 @@ const Download: FC<Props> = ({ data, setData }) => {
       <p className="text-small">Save Template</p>
 
       <label className="download-pdf__template_upload">
-        <input type="file" accept=".json,.template" onChange={handleInput} />
+        <input
+          type="file"
+          accept=".json,.template"
+          onChange={handleInput}
+          title="Upload Template File"
+          aria-label="Upload Template File"
+        />
       </label>
       <p className="text-small">Upload Template</p>
     </div>
