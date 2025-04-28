@@ -475,7 +475,7 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
             <Text className="mb-2 fs-small" pdfMode={pdfMode}>
               Payment terms: Invoice to be settled by {format(invoiceDueDate, dateFormat)}
             </Text>
-            <View className="flex mb-2" pdfMode={pdfMode}>
+            <View className="flex" pdfMode={pdfMode}>
               <View className="w-20" pdfMode={pdfMode}>
                 <Text className="bold fs-small" pdfMode={pdfMode}>
                   Bank:
@@ -491,7 +491,7 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
                 />
               </View>
             </View>
-            <View className="flex mb-2" pdfMode={pdfMode}>
+            <View className="flex" pdfMode={pdfMode}>
               <View className="w-20" pdfMode={pdfMode}>
                 <Text className="bold fs-small" pdfMode={pdfMode}>
                   Sort Code:
@@ -507,7 +507,7 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
                 />
               </View>
             </View>
-            <View className="flex mb-2" pdfMode={pdfMode}>
+            <View className="flex" pdfMode={pdfMode}>
               <View className="w-20" pdfMode={pdfMode}>
                 <Text className="bold fs-small" pdfMode={pdfMode}>
                   Account Number:
@@ -523,7 +523,7 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
                 />
               </View>
             </View>
-            <View className="flex mb-2" pdfMode={pdfMode}>
+            <View className="flex" pdfMode={pdfMode}>
               <View className="w-20" pdfMode={pdfMode}>
                 <Text className="bold fs-small" pdfMode={pdfMode}>
                   IBAN:
@@ -539,7 +539,7 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
                 />
               </View>
             </View>
-            <View className="flex mb-2" pdfMode={pdfMode}>
+            <View className="flex" pdfMode={pdfMode}>
               <View className="w-20" pdfMode={pdfMode}>
                 <Text className="bold fs-small" pdfMode={pdfMode}>
                   BIC:
