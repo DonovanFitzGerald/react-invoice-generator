@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { PDFDownloadLink } from '@react-pdf/renderer'
 import { Invoice, TInvoice } from '../data/types'
 import InvoicePage from './InvoicePage'
@@ -10,8 +10,16 @@ interface Props {
 }
 
 const Download: FC<Props> = ({ data, setData }) => {
-  // Use current data for PDF generation
-  const debounced = data
+  // Create a state to track changes to the invoice data
+  const [invoiceData, setInvoiceData] = useState<Invoice>(data)
+  const [key, setKey] = useState<number>(0)
+
+  // Update the local state whenever the parent data changes
+  useEffect(() => {
+    setInvoiceData(data)
+    // Increment the key to force re-render of the PDFDownloadLink
+    setKey((prevKey) => prevKey + 1)
+  }, [data])
 
   function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
     if (!e.target.files?.length) return
@@ -37,10 +45,10 @@ const Download: FC<Props> = ({ data, setData }) => {
   }
 
   // Get the invoice number from the invoice title or use 'invoice' as fallback
-  const getInvoiceNumber = () => (data.invoiceTitle ? data.invoiceTitle : 'invoice')
+  const getInvoiceNumber = () => (invoiceData.invoiceTitle ? invoiceData.invoiceTitle : 'invoice')
 
   function handleSaveTemplate() {
-    const blob = new Blob([JSON.stringify(debounced)], {
+    const blob = new Blob([JSON.stringify(invoiceData)], {
       type: 'text/plain;charset=utf-8',
     })
     FileSaver(blob, `Invoice-${getInvoiceNumber()}.template`)
@@ -50,8 +58,8 @@ const Download: FC<Props> = ({ data, setData }) => {
   return (
     <div className={'download-pdf '}>
       <PDFDownloadLink
-        key="pdf"
-        document={<InvoicePage pdfMode={true} data={debounced} />}
+        key={`pdf-${key}`}
+        document={<InvoicePage pdfMode={true} data={invoiceData} />}
         fileName={fileName}
         aria-label="Save PDF"
         title="Save PDF"
